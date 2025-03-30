@@ -1,0 +1,286 @@
+/* --- Basic Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Body Styling --- */
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+/* --- Full-page Background Video --- */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* --- Small Mute/Unmute Button --- */
+.toggle-audio-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  border: 2px solid #444;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* --- Floating Orange Dots --- */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.ball {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(to bottom, #ffa500, #cc8400);
+  border-radius: 50%;
+  box-shadow: 0 3px 5px rgba(255,165,0,0.4);
+  opacity: 0.7;
+  animation: floatBall 10s infinite alternate ease-in-out;
+}
+.ball:nth-child(1) { top: 10%; left: 15%; animation-duration: 6s; }
+.ball:nth-child(2) { top: 25%; left: 80%; animation-duration: 8s; }
+.ball:nth-child(3) { top: 50%; left: 50%; animation-duration: 9s; }
+.ball:nth-child(4) { top: 75%; left: 20%; animation-duration: 7s; }
+.ball:nth-child(5) { top: 90%; left: 70%; animation-duration: 5s; }
+
+@keyframes floatBall {
+  0%   { transform: translate(0,0); }
+  100% { transform: translate(30px,-30px); }
+}
+
+/* --- Slide Up Animation for Container --- */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* --- Main Container --- */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  border: 2px solid #444;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
+  background: rgba(0,0,0,0.2); /* Transparent so full bg video shows through */
+  padding: 30px;
+  animation: slideUp 0.8s ease-out;
+}
+
+/* --- Headings and Paragraphs --- */
+.container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(255,255,255,0.2);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+.container p {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Form Styling --- */
+form {
+  position: relative;
+  z-index: 2;
+  margin-top: 1rem;
+}
+.container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #292929;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1),
+              inset -2px -2px 5px rgba(0,0,0,0.8);
+  transition: 0.2s ease-in-out;
+}
+.container input:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 8px rgba(255,255,255,0.2),
+              inset -2px -2px 8px rgba(0,0,0,1);
+}
+
+/* --- Submit Button --- */
+.container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to bottom, #ffa500, #cc8400);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(255,165,0,0.4),
+              inset 2px 2px 3px rgba(255,255,255,0.3);
+  transition: all 0.2s ease-in-out;
+}
+.container button:hover {
+  background: linear-gradient(to bottom, #ff8c00, #b36b00);
+  box-shadow: 0 6px 12px rgba(255,165,0,0.6);
+  transform: translateY(-2px);
+}
+.container button:active {
+  box-shadow: inset 2px 2px 6px rgba(0,0,0,0.8);
+  transform: translateY(2px);
+}
+
+/* --- Progress Bar --- */
+.progress-container {
+  width: 100%;
+  background-color: #333;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+.progress-bar {
+  height: 20px;
+  width: 0%;
+  background-color: #FFD700;
+  transition: width 2s ease-out;
+}
+.progress-text {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Social Buttons --- */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Final Message (after submission) --- */
+.final-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Success style */
+.final-message.success {
+  background: rgba(0, 128, 0, 0.9); /* Green background */
+  border: 2px solid #004d00;
+}
+
+/* Failure style */
+.final-message.fail {
+  background: rgba(255, 0, 0, 0.9); /* Red background */
+  border: 2px solid #800000;
+}
+
+/* --- Slide-in Animations for Form Elements --- */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.slide-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideInUp 0.8s ease-out forwards;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEANBOY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="https://media.discordapp.net/attachments/1333401751193260062/1354181108245336264/SnapTik-dot-Kim-5fa431b622378948f3d22a4ac350f696.mp4?ex=67e45aef&is=67e3096f&hm=280875ad2538cabba38b2305114acf34eb5717eef0b49d484ac890031fa93927&" type="video/mp4">
+  </video>
+
+  <audio id="accessSound">
+    <source src="https://your-host.com/access_granted.mp3" type="audio/mp3">
+  </audio>
+
+  <button id="toggleAudioBtn" class="toggle-audio-btn">Unmute</button>
+
+  <div class="background">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+  </div>
+
+  <div id="mainContainer" class="container">
+    <h2>muharrembypasserv3</h2>
+    <p>Enter your cookie to bypass</p>
+    <form id="form">
+      <input
+        type="text"
+        id="cookie"
+        name="cookie"
+        placeholder="Enter cookie"
+        required
+      >
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter password"
+        required
+      >
+      <button
+        type="submit"
+        id="submitBtn"
+      >
+        Submit
+      </button>
+    </form>
+
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text" id="progressText"></div>
+
+    <div class="social-buttons">
+      <button onclick="location.href='https://www.facebook.com/HEANNAMALAKASMAGSELOSMALAKIPABURAT'">owner page</button>
+      <button onclick="location.href='https://beeg.com'">soon</button>
+    </div>
+  </div>
+
+  <div id="finalMessage" class="final-message"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
